@@ -1,0 +1,22 @@
+QuorumMonitoringService:
+    Db:
+        LogsConnString:
+            settings-key: QuorumMonitoringService-LogsConnString
+            types:
+              - AzureTableStorage
+    Nodes:
+        settings-key: QuorumMonitoringService-Nodes
+        types:
+            - JsonArray
+SlackNotifications:
+    AzureQueue:
+        ConnectionString:
+            settings-key: SlackNotificationsConnString
+            types:
+                - AzureTableStorage
+        QueueName:
+            settings-key: SlackQueueName
+MonitoringServiceClient:
+    MonitoringServiceUrl:
+        settings-key: MonitoringServiceUrl
+
