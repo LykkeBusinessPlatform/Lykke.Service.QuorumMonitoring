@@ -36,11 +36,18 @@ namespace Lykke.Service.QuorumMonitoring.Services
             var tasks = _nodesConnection.Select(c => TestNode(c.Item1, c.Item2)).ToArray();
             await Task.WhenAll(tasks);
             
-            foreach (var task in tasks)
+            var list = new List<Report>();
+            foreach (var node in _nodesConnection)
+            {
+                var report = await TestNode(node.Item1, node.Item2);
+                list.Add(report);
+            }
+
+            foreach (var report in list)
             {
                 _log.Info("Quorum node report", context: new
                 {
-                    QuorumReport = task.Result
+                    QuorumReport = report
                 });
             }
         }
