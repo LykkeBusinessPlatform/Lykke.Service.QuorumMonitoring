@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
@@ -10,10 +9,8 @@ using Common.Log;
 using Lykke.Common.Log;
 using Lykke.Logs;
 using Lykke.Service.QuorumMonitoring.Settings;
-using MongoDB.Driver.Core.Clusters.ServerSelectors;
 using Nethereum.JsonRpc.WebSocketClient;
 using Nethereum.Web3;
-using Org.BouncyCastle.Math;
 
 namespace Lykke.Service.QuorumMonitoring.Services
 {
@@ -33,14 +30,18 @@ namespace Lykke.Service.QuorumMonitoring.Services
 
         private async Task DoTime(ITimerTrigger timer, TimerTriggeredHandlerArgs args, CancellationToken cancellationtoken)
         {
-            var tasks = _nodesConnection.Select(c => TestNode(c.Item1, c.Item2)).ToArray();
-            await Task.WhenAll(tasks);
-            
+
+            await Task.Delay(20);
+            Console.WriteLine(">>>Start check");
+
             var list = new List<Report>();
             foreach (var node in _nodesConnection)
             {
                 var report = await TestNode(node.Item1, node.Item2);
-                list.Add(report);
+                _log.Info("Quorum node report", context: new
+                {
+                    QuorumReport = report
+                });
             }
 
             foreach (var report in list)
@@ -50,6 +51,7 @@ namespace Lykke.Service.QuorumMonitoring.Services
                     QuorumReport = report
                 });
             }
+            Console.WriteLine("<<<Stop check");
         }
 
         private async Task<Report> TestNode(string name, Web3 web3)
