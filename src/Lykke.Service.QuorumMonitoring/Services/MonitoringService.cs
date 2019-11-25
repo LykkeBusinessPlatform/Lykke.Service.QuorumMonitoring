@@ -30,10 +30,6 @@ namespace Lykke.Service.QuorumMonitoring.Services
 
         private async Task DoTime(ITimerTrigger timer, TimerTriggeredHandlerArgs args, CancellationToken cancellationtoken)
         {
-
-            await Task.Delay(20);
-            Console.WriteLine(">>>Start check");
-
             var list = new List<Report>();
             foreach (var node in _nodesConnection)
             {
