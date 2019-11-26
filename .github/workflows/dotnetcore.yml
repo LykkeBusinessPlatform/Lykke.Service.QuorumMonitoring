@@ -28,5 +28,6 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: ./publish
-      
+        snapshot: true
+        tag_names: true     
 
