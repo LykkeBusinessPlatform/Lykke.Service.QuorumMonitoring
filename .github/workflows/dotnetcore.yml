@@ -21,5 +21,7 @@ jobs:
       run: dotnet publish .src/Lykke.Service.QuorumMonitoring/Lykke.Service.QuorumMonitoring.csproj --output ./publish --configuration Release
     - name: check
       run: ls ./publish
+    - name: check secret
+      run: echo ${{ secrets.DOCKER_USERNAME }}
       
 
