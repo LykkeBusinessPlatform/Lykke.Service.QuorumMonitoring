@@ -17,5 +17,7 @@ jobs:
       run: dotnet build --configuration Release
     - name: Test
       run: dotnet test --configuration Release
+    - name: Check docker
+      run: docker --version
       
 
