@@ -18,7 +18,7 @@ jobs:
     - name: Test
       run: dotnet test --configuration Release
     - name: publish
-      run: dotnet publish .src/Lykke.Service.QuorumMonitoring/Lykke.Service.QuorumMonitoring.csproj --output ./publish --configuration Release
+      run: dotnet publish ./src/Lykke.Service.QuorumMonitoring/Lykke.Service.QuorumMonitoring.csproj --output ./publish --configuration Release
     - name: check
       run: ls ./publish
     - name: check secret
