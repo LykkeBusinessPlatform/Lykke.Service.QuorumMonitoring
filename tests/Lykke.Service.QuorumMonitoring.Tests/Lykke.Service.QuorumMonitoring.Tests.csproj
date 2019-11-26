@@ -10,8 +10,6 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\client\Lykke.Service.QuorumMonitoring.Client\Lykke.Service.QuorumMonitoring.Client.csproj" />
     <ProjectReference Include="..\..\src\Lykke.Service.QuorumMonitoring\Lykke.Service.QuorumMonitoring.csproj" />
-    <ProjectReference Include="..\..\src\Lykke.Service.QuorumMonitoring.DomainServices\Lykke.Service.QuorumMonitoring.DomainServices.csproj" />
   </ItemGroup>
 </Project>

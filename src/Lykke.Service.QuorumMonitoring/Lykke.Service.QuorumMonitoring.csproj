@@ -28,11 +28,6 @@
     <PackageReference Include="Nethereum.Web3" Version="3.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lykke.Service.QuorumMonitoring.AzureRepositories\Lykke.Service.QuorumMonitoring.AzureRepositories.csproj" />
-    <ProjectReference Include="..\Lykke.Service.QuorumMonitoring.Domain\Lykke.Service.QuorumMonitoring.Domain.csproj" />
-    <ProjectReference Include="..\Lykke.Service.QuorumMonitoring.DomainServices\Lykke.Service.QuorumMonitoring.DomainServices.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Controllers\" />
   </ItemGroup>
 </Project>
