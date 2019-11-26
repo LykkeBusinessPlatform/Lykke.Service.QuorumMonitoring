@@ -19,9 +19,14 @@ jobs:
       run: dotnet test --configuration Release
     - name: publish
       run: dotnet publish ./src/Lykke.Service.QuorumMonitoring/Lykke.Service.QuorumMonitoring.csproj --output ../../publish --configuration Release
-    - name: check
+    - name: check dir
       run: ls ./publish
-    - name: check secret
-      run: echo ${{ secrets.DOCKER_USERNAME }}
+    - name: Publish to Registry
+      uses: LykkeBusinessPlatform/Publish-Docker-Github-Action@master
+      with:
+        name: lykkebiz/quorum-monitoring
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        workdir: ./publish
       
 
