@@ -1,4 +1,4 @@
-name: .NET Core
+name: Build release
 
 on: # [push] - if use this then build for each push to master
   push:
